@@ -23,7 +23,7 @@
 
     <form onsubmit={addItem}>
         <input type="text" bind:value={todoItem}>
-        <button type="submit">Add</button>
+        <button class="my-buttons" type="submit">Add</button>
     </form>
 
     <div class="todo-list">
@@ -32,7 +32,7 @@
             <li>
                 <input type="checkbox" bind:checked={item.done}>
                 <span class:done={item.done}>{item.text}</span>
-                <button type="button" onclick={() => removeItem(index)}>&times;</button>
+                <button class="my-buttons" type="button" onclick={() => removeItem(index)}>&times;</button>
             </li>
             {/each}
         </ul>
@@ -47,22 +47,38 @@
         --lilac: #C9BDF2;
         --blue: #B6D6F2;
         --lightBlue: #C9EBF2;
-        --titles: ;
-        --text: ;
+        --Buttons: 'Alfa Slab One', system-ui;
+        --text: 'Baloo 2 Variable', system-ui;
+        --titles: 'Calistoga', system-ui;
     }
+
     ul{
         list-style: none;
+        color: black;
+        font-family: var(--text);
     }
     input[type="checkbox"]{
         height: 20px;
         width: 20px;
-        accent-color: blue;
+        accent-color: var(--lightBlue);
     }
     li span.done {
         text-decoration: line-through;
-        color: gray;
+        color: var(--lilac);
     }
     :global(body) {
-    background-color: #f0f0f0;
+    background-color: var(--pink);
+    margin: 6vw 44vw;
     }
+    button {
+        background-color: var(--blue);
+        font-family: var(--Buttons);
+        border-radius: 5px;
+        transition: transform 0.3s ease-in-out;
+        transition: background-color 0.3s ease;
+    }
+    .my-buttons:hover {
+        transform: scale(1.1);
+        background-color: var(--lightBlue);
+        }
 </style>
