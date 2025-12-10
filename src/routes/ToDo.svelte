@@ -1,19 +1,19 @@
 <script>
     let todoItem = $state('');
     let todoList = $state([]);
- // Add todo item to todo list
-function addItem(event) {
-    event.preventDefault();
-    if (todoItem.trim().length === 0) {
-        return;
-    }
-    todoList = [...todoList, {
-        text: todoItem,
-        done: false
-    }];
-    todoItem = '';
-}
-// Remove item from todo list
+    // Add todo item to todo list
+    function addItem(event) {
+        event.preventDefault();
+        if (todoItem.trim().length === 0) {
+            return;
+        }
+        todoList = [...todoList, {
+            text: todoItem,
+            done: false
+        }];
+        todoItem = '';
+    }   
+    // Remove item from todo list
     function removeItem(index) {
         todoList.splice(index,1);
     }
@@ -41,16 +41,28 @@ function addItem(event) {
 
 
 <style>
+    :root {
+        --pink: #EED0F2;
+        --lavender: #CEB3F2;
+        --lilac: #C9BDF2;
+        --blue: #B6D6F2;
+        --lightBlue: #C9EBF2;
+        --titles: ;
+        --text: ;
+    }
     ul{
         list-style: none;
     }
     input[type="checkbox"]{
         height: 20px;
         width: 20px;
-        accent-color: green;
+        accent-color: blue;
     }
     li span.done {
         text-decoration: line-through;
         color: gray;
+    }
+    :global(body) {
+    background-color: #f0f0f0;
     }
 </style>
